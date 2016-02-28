@@ -9,7 +9,7 @@ Synopsis:            A Haskell binding to MeCab
 Description:
   A Haskell binding to MeCab <http://mecab.sourceforge.net/>
 Homepage:            http://github.com/tanakh/hsmecab
-Cabal-Version:       >=1.6
+Cabal-Version:       >=1.8
 Build-Type:          Simple
 
 library
@@ -22,6 +22,16 @@ library
 
   Exposed-modules:
                         Text.MeCab
+
+test-suite test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Test.hs
+  build-depends:       base
+                     , mecab
+                     , text
+                     , bytestring
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
 
 Source-repository head
   Type:                 git
